@@ -27,21 +27,21 @@ public class TouchController : MonoBehaviour {
         {
             foreach (Touch t in Input.touches)
             {
-                if (t.phase == TouchPhase.Moved && tag == "RightFripperTag" && t.position.x >= Screen.width / 2)
+                if (t.phase == TouchPhase.Began  && tag == "RIghtFripperTag" && t.position.x >= Screen.width / 2)
                 {
                     Debug.Log("押してる");
                     SetAngle(flickAngle);
                 }
-                if (t.phase == TouchPhase.Moved && tag == "LeftFripperTag" && t.position.x <= Screen.width / 2)
+                else if (t.phase == TouchPhase.Began && tag == "LeftFripperTag" && t.position.x <= Screen.width / 2)
                 {
                     Debug.Log("押してる");
                     SetAngle(flickAngle);
                 }
-                if (t.phase == TouchPhase.Ended && tag == "RightFripperTag" && t.position.x >= Screen.width / 2)
+                else if (t.phase == TouchPhase.Ended && tag == "RIghtFripperTag" && t.position.x >= Screen.width / 2)
                 {
                     SetAngle(defaultAngle);
                 }
-                if (t.phase == TouchPhase.Ended  && tag == "LeftFripperTag" && t.position.x <= Screen.width / 2)
+                else if (t.phase == TouchPhase.Ended  && tag == "LeftFripperTag" && t.position.x <= Screen.width / 2)
                 {
                     SetAngle(defaultAngle);
                 }
